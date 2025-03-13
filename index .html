@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Food Order System</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="./logo.avif" alt="Logo">
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search food..." id="search">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="./index .html"><i class="fa-regular fa-house"></i>&emsp;Home</a></li>
+        <li><a href="./login.html"><i class="fa-solid fa-lock"></i>&emsp;Login/Register</a></li>
+        <li><a href="#footer"><i class="fa-solid fa-address-book"></i>&emsp;Contact</a></li>
+          <li><a href="cart.html"><box-icon type='solid' name='cart'></box-icon><span class="cartcount">0</span> &emsp;Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="marquee-container">
+    <div class="marquee-content">
+            <marquee><img class="img2"src="./cake1.jpg" alt="Cake">
+        <img class="img2"src="./sweets.jpeg" alt="Sweets">
+        <img class="img2"src="./cool drinks.jpg" alt="Cool Drinks">
+          <img class="img2"src="./rooti.jpeg" alt="Roti"></marquee>
+
+  <script>
+let allProducts = []; // Store all food items globally
+
+// Fetch and Display Food Items
+fetch("food.json")
+    .then((res) => res.json())
+    .then((data) => {
+        if (!data.products || !Array.isArray(data.products)) {
+            throw new Error("Invalid data format: 'products' should be an array.");
+        }
+
+        allProducts = data.products; // Store the products for search
+        displayProducts(allProducts);
+    })
+    .catch((error) => console.error("Error fetching food data:", error));
+
+function displayProducts(products) {
+    let cards = document.getElementById("food-container");
+
+    if (!cards) {
+        // Create the container only once
+        cards = document.createElement("div");
+        cards.setAttribute("id", "food-container");
+        document.body.appendChild(cards);
+    }
+
+    cards.innerHTML = ""; // Clear previous items
+
+    products.forEach((product) => {
+        let card = document.createElement("div");
+        card.classList.add("foodcard");
+
+        card.innerHTML = `
+            <img class='img1' src="${product.image}" alt="${product.name}" width="250" height="200">
+            <strong class='name'>${product.name}</strong>
+            <p class='des'>${product.description}</p>
+            <strong class='price'>Price: $${product.price}</strong>
+            <br>
+            <button class='butt1' data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}">BUY NOW</button>
+        `;
+
+        cards.appendChild(card);
+    });
+
+    attachAddToCartListeners();
+}
+
+function attachAddToCartListeners() {
+    document.querySelectorAll(".butt1").forEach((button) => {
+        button.addEventListener("click", (event) => {
+            let product = {
+                id: event.target.getAttribute("data-id"),
+                name: event.target.getAttribute("data-name"),
+                price: parseFloat(event.target.getAttribute("data-price")),
+                image: event.target.getAttribute("data-image"),
+            };
+            addToCart(product);
+        });
+    });
+}
+
+// Search Functionality
+document.getElementById("search").addEventListener("input", function () {
+    let searchValue = this.value.toLowerCase();
+    let filteredProducts = allProducts.filter(product =>
+        product.name.toLowerCase().includes(searchValue) ||
+        product.description.toLowerCase().includes(searchValue)
+    );
+
+    displayProducts(filteredProducts);
+});
+
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartCount = document.querySelector(".cartcount");
+    let totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = totalItems;
+}
+
+function addToCart(product) {
+    if (!product.id || !product.name || !product.price || !product.image) {
+        console.error("Invalid product data:", product);
+        return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let itemIndex = cart.findIndex((item) => item.id === product.id);
+
+    if (itemIndex !== -1) {
+        cart[itemIndex].quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(`${product.name} added to cart!`);
+}
+
+
+updateCartCount();
+</script>
+<footer class="footer" id="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Your go-to online store for the latest fashion, electronics, and more. We provide high-quality products with excellent customer service.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Returns & Exchanges</a></li>
+                <li><a href="#">Shipping Policy</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Best Sellers</a></li>
+                <li><a href="#">Gift Cards</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>CONCACT</h3>
+            <div class="newsletter">
+                <p><h3>PHONE:6304381824</h3></p>
+                <p><h3></h3>EMAIL:boddapatilakshman8@gmail.com</h3></p>
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2025 YourShop | All Rights Reserved.
+    </div>
+</footer>
+
+  </body>
+  </html>

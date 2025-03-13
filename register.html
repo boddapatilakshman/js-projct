@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styleregister.css">
+</head>
+<body>
+    <div class="main">
+        <div class="login">
+            <h2>REGISTER :</h2><br><br>
+            <form id="registerform">
+            <label for="name">NAME :</label><BR>
+            <input type="name" placeholder="ENTER YOUR NAME" required><BR>
+            <label for="email">EMAIL :</label><BR>
+            <input type="text"placeholder="ENTER YOUR EMAIL" required><BR>
+            <label for="PASSWORD">PASSWORD :</label><BR>
+            <input type="PASSWORD"placeholder="ENTER YOUR PASSWORD" required><BR>
+            <button class="butt"><a href="./login.html">REGISTER</a></button>
+            </form>
+        </div>
+        </div>
+        <script>
+            document.getElementById("registerForm").addEventListener("submit", async function(event) {
+                event.preventDefault(); // Prevent form submission
+    
+                const user = {
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    password: document.getElementById("password").value
+                };
+    
+                const response = await fetch("http://localhost:3000/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(user)
+                });
+    
+                const data = await response.json();
+                alert(data.message);
+            });
+        </script>
+</body>
+</html>

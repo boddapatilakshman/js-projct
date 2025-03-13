@@ -1,0 +1,165 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Andhra Chicken Curry",
+        "price": 9.99,
+        "category": "Andhra Style",
+        "description": "Spicy chicken curry with traditional Andhra flavors.",
+        "image": "./chicken biryani.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Gongura Mutton",
+        "price": 11.99,
+        "category": "Andhra Style",
+        "description": "Tender mutton cooked with tangy gongura leaves.",
+        "image": "./gongura biryani.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Pulihora",
+        "price": 7.50,
+        "category": "Andhra Style",
+        "description": "Tamarind rice with a tangy and spicy flavor.",
+        "image": "./pulihora.jpeg"
+      },
+      {
+        "id": 4,
+        "name": "Pesarattu",
+        "price": 6.99,
+        "category": "Andhra Style",
+        "description": "Green gram dosa served with ginger chutney.",
+        "image": "./pesarattu.jpeg"
+      },
+      {
+        "id": 5,
+        "name": "Mirchi Bajji",
+        "price": 4.50,
+        "category": "Andhra Style",
+        "description": "Deep-fried green chilies stuffed with tangy spices.",
+        "image": "./mirchibajji.jpeg"
+      },
+      {
+        "id": 6,
+        "name": "Salad",
+        "price": 10.99,
+        "category": "Andhra Style",
+        "description": "Rich curry made with tender goat meat.",
+        "image": "./salad.webp"
+      },
+      {
+        "id": 7,
+        "name": "Royyala Iguru",
+        "price": 12.50,
+        "category": "Andhra Style",
+        "description": "Spicy prawn curry cooked with coconut and traditional spices.",
+        "image": "./royyala iguru.jpeg"
+      },
+      {
+        "id": 8,
+        "name": "Chepala Pulusu",
+        "price": 9.50,
+        "category": "Andhra Style",
+        "description": "Tangy fish curry with tamarind and robust spices.",
+        "image": "./chepalapulusu.jpeg"
+      },
+      {
+        "id": 9,
+        "name": "Kodi Vepudu",
+        "price": 8.99,
+        "category": "Andhra Style",
+        "description": "Crispy fried chicken with a burst of traditional flavors.",
+        "image": "./chicken fry.jpeg"
+      },
+      {
+        "id": 10,
+        "name": "Natu Kodi Pulusu",
+        "price": 11.50,
+        "category": "Andhra Style",
+        "description": "Country chicken curry with a rich, spicy gravy.",
+        "image": "./natukodi.jpeg"
+      },
+      {
+        "id": 11,
+        "name": "Andhra Biryani",
+        "price": 13.99,
+        "category": "Andhra Style",
+        "description": "Flavorful biryani with a signature Andhra spice blend.",
+        "image": "./chicken biryani.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Manchuria",
+        "price": 7.99,
+        "category": "Andhra Style",
+        "description": "Stuffed eggplant curry prepared in classic Andhra style.",
+        "image": "./manchuria.jpeg"
+      },
+      {
+        "id": 13,
+        "name": "Nudels",
+        "price": 7.50,
+        "category": "Andhra Style",
+        "description": "Eggplant curry cooked with aromatic spices.",
+        "image": "./nudels.jpeg"
+      },
+      {
+        "id": 14,
+        "name": "Prawn Curry",
+        "price": 12.99,
+        "category": "Andhra Style",
+        "description": "Spicy prawn curry with a fresh herb infusion.",
+        "image": "./prans curry.jpeg"
+      },
+      {
+        "id": 15,
+        "name": "Sambar",
+        "price": 5.99,
+        "category": "Andhra Style",
+        "description": "Hearty lentil and vegetable stew with tamarind.",
+        "image": "./sambar.jpeg"
+      },
+      {
+        "id": 16,
+        "name": "Ragi Mudde",
+        "price": 4.99,
+        "category": "Andhra Style",
+        "description": "Nutritious finger millet balls served with spicy curry.",
+        "image": "./ragimudda.jpg"
+      },
+      {
+        "id": 17,
+        "name": "Pesarattu Upma",
+        "price": 6.50,
+        "category": "Andhra Style",
+        "description": "Upma made with the batter of green gram dosa.",
+        "image": "./upma.jpeg"
+      },
+      {
+        "id": 18,
+        "name": "Tomato Pappu",
+        "price": 5.50,
+        "category": "Andhra Style",
+        "description": "Lentil curry flavored with fresh tomatoes.",
+        "image": "./sambar.jpeg"
+      },
+      {
+        "id": 19,
+        "name": "Andhra Veg Curry",
+        "price": 8.50,
+        "category": "Andhra Style",
+        "description": "Mixed vegetable curry with a robust, spicy kick.",
+        "image": "./veg.jpeg"
+      },
+      {
+        "id": 20,
+        "name": "Andhra Special Thali",
+        "price": 15.99,
+        "category": "Andhra Style",
+        "description": "A complete meal featuring a variety of Andhra specialties.",
+        "image": "./thali.jpeg"
+      }
+    ]
+  }
+  
